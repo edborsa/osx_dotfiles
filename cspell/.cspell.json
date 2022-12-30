@@ -1,0 +1,33 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "mkdirp",
+    "datasource",
+    "cuid",
+    "tsmerge",
+    "githubusercontent",
+    "streetsidesoftware",
+    "vsmarketplacebadge",
+    "visualstudio",
+    "nvim",
+    "Borsa's",
+    "Borsa",
+    "rehype",
+    "Rehype",
+    "tailwindcss",
+    "Parens",
+    "tuto",
+    "Dadinho",
+    "neovim",
+    "DAWG",
+    "adoc",
+    "yomi",
+    "cslog",
+    "noreply",
+    "DYEB",
+    "postcss",
+    "nums"
+  ],
+  "flagWords": ["hte"]
+}
