@@ -21,6 +21,10 @@ return require('packer').startup(function(use)
 	  end
   })
 
+
+  use({"alexghergh/nvim-tmux-navigation"})
+  
+
   use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
   use('nvim-treesitter/playground')
   use('theprimeagen/harpoon')
@@ -51,6 +55,22 @@ return require('packer').startup(function(use)
 
   use("folke/zen-mode.nvim")
   use("github/copilot.vim")
+
+  -- Eduardo Borsa
+  use {'tpope/vim-projectionist'}
+  use {"janko-m/vim-test"}
+  use {"folke/which-key.nvim"}
+
+  use {
+      'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
+  }
+
+  use {'JoosepAlviste/nvim-ts-context-commentstring'}
+
+  use {"jose-elias-alvarez/null-ls.nvim"}
 
 end)
 
