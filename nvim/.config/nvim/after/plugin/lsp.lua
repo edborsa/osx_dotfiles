@@ -135,7 +135,9 @@ end
 null_ls.setup({
 	sources = {
 		formatting.black,
-		null_ls.builtins.diagnostics.credo,
+		null_ls.builtins.diagnostics.credo.with{
+            timeout_ms = 20000
+        },
 		formatting.clang_format,
 		formatting.cmake_format,
 		formatting.dart_format,
@@ -184,7 +186,6 @@ null_ls.setup({
 	debounce = 2500,
 	debug = true,
 	default_timeout = 300000,
-	-- default_timeout = 5000,
 	diagnostics_format = "#{m}",
 	fallback_severity = vim.diagnostic.severity.ERROR,
 	log = {enable = true, level = "warn", use_console = "async"},
