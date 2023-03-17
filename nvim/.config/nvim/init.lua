@@ -7,4 +7,5 @@ vim.cmd [[
   endif
 
   so ~/.config/nvim/vim-lang/plugin_configs/init.vim
+  so ~/.config/nvim/vim-lang/init.vim
 ]]
