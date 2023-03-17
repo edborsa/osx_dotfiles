@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 
 _not_inside_tmux() {
-  [[ -z "$TMUX" ]]
+	[[ -z "$TMUX" ]]
 }
 
 _not_inside_ssh() {
-  [[ -z "$SSH_CLIENT" ]]
+	[[ -z "$SSH_CLIENT" ]]
 }
 
 _tmux_not_disabled() {
-  [[ -z "$NO_TMUX" ]]
+	[[ -z "$NO_TMUX" ]]
 }
 
 _in_floating_term() {
-  [[ ! -z "$FLOATING_TMUX_SESSION" ]]
+	[[ ! -z "$FLOATING_TMUX_SESSION" ]]
 }
 
 if _in_floating_term; then
-  tmux attach-session -t $FLOATING_TMUX_SESSION || tmux new -s $FLOATING_TMUX_SESSION
+	tmux attach-session -t $FLOATING_TMUX_SESSION || tmux new -s $FLOATING_TMUX_SESSION
 elif _not_inside_tmux && _not_inside_ssh && _tmux_not_disabled; then
-  ~/.bin/tat
+	~/.local/bin/tat
 fi

@@ -1,5 +1,5 @@
 bindkey '^ ' autosuggest-accept
-~/.bin/ensure-tmux-is-running
+~/.local/bin/ensure-tmux-is-running
 
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -8,7 +8,6 @@ ZSH_THEME="robbyrussell"
 plugins=(
 	git
 	zsh-autosuggestions
-    zsh-vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
