@@ -1,5 +1,6 @@
-bindkey '^ ' autosuggest-accept
-~/.local/bin/ensure-tmux-is-running
+. "$HOME/.asdf/asdf.sh"
+# bindkey '^ ' autosuggest-accept
+# ~/.local/bin/ensure-tmux-is-running
 
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -38,8 +39,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-. $HOME/.asdf/asdf.sh
-export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
-export PATH="/opt/homebrew/opt/libxslt/bin:$PATH"
-PATH=$(pyenv root)/shims:$PATH
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+# . $HOME/.asdf/asdf.sh
+# export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+# export PATH="/opt/homebrew/opt/libxslt/bin:$PATH"
+# PATH=$(pyenv root)/shims:$PATH
+# export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export PATH="/home/dado/.local/bin:$PATH"
+export PATH="/home/dado/programs:$PATH"

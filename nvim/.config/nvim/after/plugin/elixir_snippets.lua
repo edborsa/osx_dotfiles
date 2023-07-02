@@ -114,6 +114,9 @@ ls.add_snippets("elixir", {
         {}
         {{:cont, socket}}
       end
-    ]], { i(0) }))
+    ]], { i(0) })),
+    s("credo_line", fmt([[
+        {{:credo, "~> 1.7", only: [:dev, :test], runtime: false}}
+    ]], {  }))
 
 })
