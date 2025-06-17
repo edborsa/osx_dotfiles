@@ -1,48 +1,39 @@
-. "$HOME/.asdf/asdf.sh"
-# bindkey '^ ' autosuggest-accept
-# ~/.local/bin/ensure-tmux-is-running
-
 export ZSH="$HOME/.oh-my-zsh"
-
 ZSH_THEME="robbyrussell"
 
 plugins=(
 	git
 	zsh-autosuggestions
-)
+	)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+export PATH="/Users/eduardoborsa/.local/bin:$PATH"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+autoload -Uz compinit && compinit
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+export PATH="/Users/eduardoborsa/.codeium/windsurf/bin:$PATH"
+export PATH="/Users/eduardoborsa/programs/bin:$PATH"
+export PATH="/Users/eduardoborsa/.local/share/nvim/mason/bin:$PATH"
+export PATH="/Users//eduardoborsa/.local/bin:$PATH"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# . $HOME/.asdf/asdf.sh
-# export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
-# export PATH="/opt/homebrew/opt/libxslt/bin:$PATH"
-# PATH=$(pyenv root)/shims:$PATH
-# export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-export PATH="/home/dado/.local/bin:$PATH"
-export PATH="/home/dado/programs:$PATH"
+eval "$(direnv hook zsh)"
