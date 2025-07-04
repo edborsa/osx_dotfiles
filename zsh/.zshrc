@@ -18,6 +18,8 @@ export PATH="/Users/eduardoborsa/.codeium/windsurf/bin:$PATH"
 export PATH="/Users/eduardoborsa/programs/bin:$PATH"
 export PATH="/Users/eduardoborsa/.local/share/nvim/mason/bin:$PATH"
 export PATH="/Users//eduardoborsa/.local/bin:$PATH"
+export PATH="/opt/homebrew/Cellar/evince/48.0/bin:$PATH"
+
 
 
 # >>> conda initialize >>>

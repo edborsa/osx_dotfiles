@@ -32,7 +32,28 @@
     "noreply",
     "DYEB",
     "postcss",
-    "nums"
+    "nums",
+    "vetspire",
+    "unshift",
+    "Oban",
+    "neovim",
+    "nvim",
+    "Charmander",
+    "Avante",
+    "Kaelyn",
+    "Superbet",
+    "Petar",
+    "Luka",
+    "Franic",
+    "Balogh"
+  ],
+  "ignoreWords": [],
+  "ignorePaths": [
+    "node_modules/**",
+    "package-lock.json",
+    "yarn.lock",
+    "dist/**",
+    "build/**"
   ],
   "flagWords": ["hte"]
 }

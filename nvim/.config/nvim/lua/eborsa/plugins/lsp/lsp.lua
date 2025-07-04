@@ -48,12 +48,6 @@ return {
         --  the definition of its *type*, not where it was *defined*.
         map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
 
-        map(
-          "<leader>lf",
-          "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
-          "Format"
-        )
-
         -- Fuzzy find all the symbols in your current document.
         --  Symbols are things like variables, functions, types, etc.
         map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
@@ -167,6 +161,26 @@ return {
     local servers = {
       elixirls = {
         -- cmd = { '/Users/eborsa/.elixir-ls/elx_17_otp_27/language_server.sh' },
+        settings = {
+          elixirLS = {
+            dialyzerEnabled = false,
+            fetchDeps = false,
+            enableTestLenses = false,
+            suggestSpecs = false,
+            autoBuild = false,
+            mixEnv = "dev",
+            compileDir = "tmp/elixir-ls",
+            -- Completely disable formatter to prevent warnings about unloaded formatter plugins
+            formatter = "",
+            -- Disable formatter plugins loading
+            formatterPlugins = {},
+          },
+        },
+        -- Explicitly disable formatting capabilities for Elixir LSP
+        capabilities = {
+          documentFormattingProvider = false,
+          documentRangeFormattingProvider = false,
+        },
       },
       lua_ls = {
         settings = {
@@ -242,6 +256,13 @@ return {
           -- by the server configuration above. Useful when disabling
           -- certain features of an LSP (for example, turning off formatting for tsserver)
           server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+          
+          -- Disable formatting capabilities for all LSP servers to prevent automatic formatting
+          server.capabilities = vim.tbl_deep_extend("force", server.capabilities, {
+            documentFormattingProvider = false,
+            documentRangeFormattingProvider = false,
+          })
+          
           require("lspconfig")[server_name].setup(server)
         end,
       },
