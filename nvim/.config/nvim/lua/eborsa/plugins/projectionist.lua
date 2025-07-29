@@ -1,7 +1,7 @@
 return {
-  'tpope/vim-projectionist',
+  "tpope/vim-projectionist",
   config = function()
-    vim.cmd [[
+    vim.cmd([[
       augroup vimrc_syntax_elixir
         autocmd User ProjectionistDetect
         \ call projectionist#append(getcwd(),
@@ -32,6 +32,7 @@ return {
         \     },
         \ })
       augroup END
-    ]]
+    ]])
   end,
-} 
+}
+

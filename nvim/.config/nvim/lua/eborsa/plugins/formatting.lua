@@ -65,7 +65,7 @@ return {
       },
       format_on_save = {
         lsp_fallback = true,
-        async = false,
+        async = true,
         timeout_ms = 5000,
         filter = function(client)
           -- Allow format on save for all files including Erlang
