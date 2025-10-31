@@ -182,6 +182,37 @@ return {
           documentRangeFormattingProvider = false,
         },
       },
+      tailwindcss = {
+        root_dir = require("lspconfig.util").root_pattern("tailwind.config.js", "tailwind.config.ts", "postcss.config.js", "mix.exs"),
+        filetypes = {
+          "html",
+          "css",
+          "scss",
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact",
+          "svelte",
+          "heex",
+          "elixir",
+          "eelixir", -- Phoenix/Elixir file types
+        },
+        settings = {
+          tailwindCSS = {
+            includeLanguages = {
+              elixir = "html-eex",
+              eelixir = "html-eex",
+              heex = "html-eex",
+            },
+            experimental = {
+              classRegex = {
+                [[class: "([^"]*)]],
+                [[class: '([^']*)]],
+              },
+            },
+          },
+        },
+      },
       lua_ls = {
         settings = {
           Lua = {
@@ -256,13 +287,13 @@ return {
           -- by the server configuration above. Useful when disabling
           -- certain features of an LSP (for example, turning off formatting for tsserver)
           server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-          
+
           -- Disable formatting capabilities for all LSP servers to prevent automatic formatting
           server.capabilities = vim.tbl_deep_extend("force", server.capabilities, {
             documentFormattingProvider = false,
             documentRangeFormattingProvider = false,
           })
-          
+
           require("lspconfig")[server_name].setup(server)
         end,
       },
