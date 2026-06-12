@@ -238,6 +238,17 @@ return {
       graphql = {
         filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
       },
+      gopls = {
+        settings = {
+          gopls = {
+            analyses = {
+              unusedparams = true,
+              shadow = true,
+            },
+            staticcheck = true,
+          },
+        },
+      },
       emmet_ls = {
         filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
       },
