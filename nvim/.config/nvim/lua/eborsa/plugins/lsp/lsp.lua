@@ -254,12 +254,7 @@ return {
       },
     }
 
-    -- Ensure the servers and tools above are installed
-    --  To check the current status of installed tools and/or manually install
-    --  other tools, you can run
-    --    :Mason
-    --
-    --  You can press `g?` for help in this menu.
+    -- Keep Mason available as a UI, but let Nix provide LSPs, formatters, and linters.
     require("mason").setup({
       ui = {
         icons = {
@@ -270,27 +265,9 @@ return {
       },
     })
 
-    -- Manually install formatters and linters
-    local mason_registry = require("mason-registry")
-    local tools = {
-      "stylua", -- Used to format Lua code
-      "prettier", -- Used to format various file types
-      "isort", -- Used to format Python imports
-      "black", -- Used to format Python code
-      "pylint", -- Used for Python linting
-      "eslint_d", -- Used for JavaScript/TypeScript linting
-    }
-
-    for _, tool in ipairs(tools) do
-      local p = mason_registry.get_package(tool)
-      if not p:is_installed() then
-        p:install()
-      end
-    end
-
     require("mason-lspconfig").setup({
-      ensure_installed = vim.tbl_keys(servers),
-      automatic_installation = true,
+      ensure_installed = {},
+      automatic_installation = false,
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}

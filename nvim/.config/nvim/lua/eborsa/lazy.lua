@@ -1,5 +1,7 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+local ok, lazy = pcall(require, "lazy")
+
+if not ok and not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -9,9 +11,17 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
-vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "eborsa.plugins" }, { import = "eborsa.plugins.lsp" } }, {
+if not ok then
+  vim.opt.rtp:prepend(lazypath)
+  ok, lazy = pcall(require, "lazy")
+end
+
+if not ok then
+  error("lazy.nvim is unavailable; install it with Nix or check the bootstrap clone")
+end
+
+lazy.setup({ { import = "eborsa.plugins" }, { import = "eborsa.plugins.lsp" } }, {
   checker = {
     enabled = true,
     notify = false,

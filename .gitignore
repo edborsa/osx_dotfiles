@@ -1,0 +1,5 @@
+.zsh_history
+*.bak
+result
+__pycache__/
+*.pyc
